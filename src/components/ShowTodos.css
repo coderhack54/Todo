@@ -1,0 +1,16 @@
+.Show__card {
+  background-color: #060d17;
+  color: white;
+  padding: 4px 12px;
+  margin: 4px 0px;
+  margin-top: 15px;
+  width: 50rem;
+  display: flex;
+  justify-content: space-between;
+}
+.mybtn {
+  background-color: rgb(3, 21, 51);
+  color: white;
+  border: none;
+  outline: none;
+}
