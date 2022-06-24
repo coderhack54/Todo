@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import "./ShowTodos.css";
 import { CardActions } from "@mui/material";
 import toast from "react-hot-toast";
+import { TodoContext } from "../TodoContext";
+import { AiOutlineEdit } from "react-icons/ai";
+import { AiFillDelete } from "react-icons/ai";
 
 const ShowTodos = () => {
-  const [todolist, setTodolist] = useState([]);
+  const { todolist, setTodolist } = useContext(TodoContext);
   const [loading, setLoading] = useState(true);
 
   const loaddatafrombackend = () => {
@@ -48,7 +51,7 @@ const ShowTodos = () => {
       return todolist.map((data) => (
         <Card className="Show__card" key={data._id}>
           <CardContent>
-            <h2>{data.title}</h2>
+            <h3>{data.title}</h3>
           </CardContent>
           <CardActions>
             <button
@@ -57,7 +60,10 @@ const ShowTodos = () => {
                 deleteTodo(data._id);
               }}
             >
-              <i className="fa fa-2x fa-trash" aria-hidden="true"></i>
+              <AiFillDelete
+                className="mybtn__delete"
+                style={{ fontSize: "30px" }}
+              />
             </button>
           </CardActions>
         </Card>

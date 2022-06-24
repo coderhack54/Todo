@@ -20,8 +20,11 @@ export const TodoProvider = ({ children }) => {
         console.log(err);
       });
   };
+
   return (
-    <TodoContext.Provider value={{ loaddatafrombackend }}>
+    <TodoContext.Provider
+      value={{ loaddatafrombackend, todolist, setTodolist }}
+    >
       {children}
     </TodoContext.Provider>
   );
